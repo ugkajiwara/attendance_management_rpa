@@ -238,3 +238,4 @@ Python
 シフトのデータと違う場合のnoticesの出力や、退勤の打刻し忘れた場合にダミーでデータを入れてそれをnoticesに格納することで、
 甲に手動で打刻する際のヒューマンエラーの可能性のあるデータを自動で知らせる処理など...
 
+Qiita: https://qiita.com/ugkajiwara/items/5681c00bbf7f1f9f16b2
