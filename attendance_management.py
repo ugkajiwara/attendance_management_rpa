@@ -299,5 +299,4 @@ if notices != []:
 driver.close()
 driver.quit()
 
-
 print('処理が正常に完了しました')
