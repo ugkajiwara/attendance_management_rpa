@@ -9,7 +9,6 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.common.keys import Keys
 
 notices = []
 
@@ -298,6 +297,5 @@ if notices != []:
 # ブラウザを終了する
 driver.close()
 driver.quit()
-
 
 print('処理が正常に完了しました')

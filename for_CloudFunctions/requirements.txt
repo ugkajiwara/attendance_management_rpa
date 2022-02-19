@@ -1,0 +1,6 @@
+google-cloud-error-reporting==0.30.0
+selenium
+setuptools
+BeautifulSoup4
+chromedriver_binary
+lxml
