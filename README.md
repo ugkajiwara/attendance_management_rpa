@@ -1,9 +1,16 @@
 # RPA for attendance management
 自社HPで管理している出退勤、休憩時間のデータを外部の給料計算、打刻管理のサイトに自動入力するシステム。
-seleniumライブラリを用いたスクレイピングを活用しています。いわゆるRPAってやつでしょうか。
+seleniumライブラリを用いたスクレイピングを活用しています。いわゆるRPAってやつでしょうか。<br>
+<br>
+☆attendance_management.py は、ローカルで実行するためのスクリプト<br>
+☆for_CloudFunctionsは、定期実行するためにCloudFunctionsにデプロイしたフォルダ<br>
 
 ### 使用技術
-Python
+<ul>
+  <li>Python</li>
+  <li>CloudFunctions</li>
+  <li>CloudScheduler</li>
+</ul>
 
 ### 処理内容
 
@@ -212,7 +219,7 @@ Python
 基本的な処理の流れとしては、
 <ol>
   <li>甲に自動ログイン</li>
-  <li>自動処理をしたい日付を入力し、ページ遷移</li>
+  <li><s>自動処理をしたい日付を入力し、ページ遷移</s>　前日の処理を9:00になると定期実行する</li>
   <li>名前、出退勤データなどを、それぞれリストに格納</li>
   <li>乙に自動ログインし、ページ遷移</li>
   <li>乙にある全スタッフの名前をリストに格納</li>
@@ -220,7 +227,7 @@ Python
   <li>乙上で事前に登録されているシフトデータを取得する</li>
   <li>給料計算が30分単位のため、30分単位のデータに変換して、出退勤、休憩開始終了時間のフォームにデータを入力する。７で取得したシフトデータと実際の打刻データに相違がある場合は後でまとめて出力するためにnoticesをリストに格納。</li>
   <li>保存</li>
-  <li>８でnoticesリストに格納したnoticeがある場合noticesを出力する。</li>
+  <li>８でnoticesリストに格納したnoticeがある場合noticesを<s>出力する。</s> メールで通知する。</li>
 </ol>
 
 ### 工夫した点や、苦労した点
@@ -239,3 +246,9 @@ Python
 甲に手動で打刻する際のヒューマンエラーの可能性のあるデータを自動で知らせる処理など...
 
 Qiita: https://qiita.com/ugkajiwara/items/5681c00bbf7f1f9f16b2
+
+### 追記(2022/02/20)
+クラウドに移行することで定期実行するようにしました。<br>
+詳しくは<br>
+Qiita：　https://qiita.com/ugkajiwara/items/c78668b4ed43411b78ff
+
